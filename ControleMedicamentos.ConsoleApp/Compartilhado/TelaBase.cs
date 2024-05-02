@@ -1,4 +1,6 @@
-﻿namespace ControleMedicamentos.ConsoleApp.Compartilhado
+﻿using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
+
+namespace ControleMedicamentos.ConsoleApp.Compartilhado
 {
     internal abstract class TelaBase
     {
@@ -99,7 +101,15 @@
         {
             ApresentarCabecalho();
 
-            Console.WriteLine($"Excluindo {tipoEntidade}...");
+            if(tipoEntidade == "Funcionario")
+            {
+                Console.WriteLine($"Promovendo {tipoEntidade} à cliente...");
+
+            }
+            else
+            {
+                Console.WriteLine($"Excluindo {tipoEntidade}...");
+            }
 
             Console.WriteLine();
 
@@ -121,8 +131,14 @@
                 ExibirMensagem($"Houve um erro durante a exclusão do {tipoEntidade}", ConsoleColor.Red);
                 return;
             }
-
-            ExibirMensagem($"O {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
+            if (tipoEntidade == "Funcionario")
+            {
+                ExibirMensagem($"O {tipoEntidade}promovido à cliente com sucesso!", ConsoleColor.Green);
+            }
+            else
+            {
+                ExibirMensagem($"O {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
+            }
         }
 
         public abstract void VisualizarRegistros(bool exibirTitulo);
