@@ -1,4 +1,4 @@
-﻿using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
+﻿// using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 
 namespace ControleMedicamentos.ConsoleApp.Compartilhado
 {
