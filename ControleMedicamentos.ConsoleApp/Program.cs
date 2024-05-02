@@ -1,5 +1,4 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
-using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
@@ -10,11 +9,6 @@ namespace ControleMedicamentos.ConsoleApp
     {
         static void Main(string[] args)
         {
-            RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
-            TelaFuncionario telaFuncionario = new TelaFuncionario();
-            telaFuncionario.tipoEntidade = "Funcionário";
-            telaFuncionario.repositorio = repositorioFuncionario;
-
             RepositorioPaciente repositorioPaciente = new RepositorioPaciente();
             TelaPaciente telaPaciente = new TelaPaciente();
             telaPaciente.tipoEntidade = "Paciente";
@@ -55,9 +49,6 @@ namespace ControleMedicamentos.ConsoleApp
 
                 else if (opcaoPrincipalEscolhida == '3')
                     tela = telaRequisicaoSaida;
-
-                else if (opcaoPrincipalEscolhida == '5')
-                    tela = telaFuncionario;
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 
