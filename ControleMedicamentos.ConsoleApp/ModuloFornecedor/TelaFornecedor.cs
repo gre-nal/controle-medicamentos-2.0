@@ -1,6 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
+namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 {
     internal class TelaFornecedor : TelaBase
     {
@@ -55,7 +55,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
 
         public void CadastrarEntidadeTeste()
         {
-            Fornecedor fornecedor = new Fornecedor("Bobby Tables", "49 9999-9521", "12321313122");
+            Fornecedor fornecedor = new Fornecedor("Tables Bobby", "49 9999-9521", "12321313122");
 
             repositorio.Cadastrar(fornecedor);
         }

@@ -1,7 +1,9 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
-using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.RequisicaoEntrada;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.RequisicaoSaida;
 
 namespace ControleMedicamentos.ConsoleApp
 {
@@ -29,13 +31,26 @@ namespace ControleMedicamentos.ConsoleApp
             RepositorioRequisicaoSaida repositorioRequisicaoSaida = new RepositorioRequisicaoSaida();
             TelaRequisicaoSaida telaRequisicaoSaida = new TelaRequisicaoSaida();
             telaRequisicaoSaida.repositorio = repositorioRequisicaoSaida;
-            telaRequisicaoSaida.tipoEntidade = "Requisição";
+            telaRequisicaoSaida.tipoEntidade = "Requisição de Saida";
+
+            RepositorioRequisicaoEntrada repositorioRequisicaoEntrada = new RepositorioRequisicaoEntrada();
+            TelaRequisicaoEntrada telaRequisicaoEntrada = new TelaRequisicaoEntrada();
+            telaRequisicaoEntrada.repositorio = repositorioRequisicaoEntrada;
+            telaRequisicaoEntrada.tipoEntidade = "Requisição de Entrada";
 
             telaRequisicaoSaida.telaPaciente = telaPaciente;
             telaRequisicaoSaida.telaMedicamento = telaMedicamento;
 
             telaRequisicaoSaida.repositorioPaciente = repositorioPaciente;
             telaRequisicaoSaida.repositorioMedicamento = repositorioMedicamento;
+
+            telaRequisicaoEntrada.telaMedicamento = telaMedicamento;
+            telaRequisicaoEntrada.telaFornecedor = telaFornecedor;
+            // funcionario
+
+            telaRequisicaoEntrada.repositorioMedicamento = repositorioMedicamento;
+            telaRequisicaoEntrada.repositorioFornecedor = repositorioFornecedor;
+            // funcionario
 
             while (true)
             {
@@ -56,6 +71,8 @@ namespace ControleMedicamentos.ConsoleApp
                     tela = telaFornecedor;
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaRequisicaoSaida;
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaRequisicaoEntrada;
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 
