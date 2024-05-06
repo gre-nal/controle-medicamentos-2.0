@@ -1,4 +1,5 @@
-﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+﻿using System.Collections;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 {
@@ -15,25 +16,20 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
             Cnpj = cnpj;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (Nome.Length < 3)
-                erros[contadorErros++] = "O Nome do Fornecedor precisa conter ao menos 3 caracteres";
+                erros.Add("O Nome do Fornecedor precisa conter ao menos 3 caracteres");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros[contadorErros++] = "O Telefone precisa ser preenchido";
+                erros.Add("O Telefone precisa ser preenchido");
 
             if (string.IsNullOrEmpty(Cnpj))
-                erros[contadorErros++] = "O CNPJ precisa ser preenchido";
+                erros.Add("O CNPJ precisa ser preenchido");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
     }
 }
