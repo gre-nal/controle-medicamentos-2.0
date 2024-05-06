@@ -1,5 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
+using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.RequisicaoEntrada
@@ -12,15 +13,15 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.RequisicaoEntrada
 
         public Medicamento Medicamento { get; set; }
         public Fornecedor Fornecedor { get; set; }
-        // funcionario
+        public Funcionario Funcionario { get; set; }
         public DateTime DataRequisicao { get; set; }
         public int QuantidadeAdicionada { get; set; }
 
-        public RequisicaoEntrada(Medicamento medicamentoSelecionado, Fornecedor fornecedorSelecionado, int quantidade)
+        public RequisicaoEntrada(Medicamento medicamentoSelecionado, Fornecedor fornecedorSelecionado, Funcionario funcionarioSelecionado, int quantidade)
         {
             Medicamento = medicamentoSelecionado;
             Fornecedor = fornecedorSelecionado;
-
+            Funcionario = funcionarioSelecionado;
             DataRequisicao = DateTime.Now;
             QuantidadeAdicionada = quantidade;
 
@@ -37,6 +38,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.RequisicaoEntrada
 
             if (Fornecedor == null)
                 erros[contadorErros++] = "O fornecedor precisa ser informado";
+
+            if (Funcionario == null)
+                erros[contadorErros++] = "O funcionário precisa ser informado";
 
             if (QuantidadeAdicionada == null)
                 erros[contadorErros++] = "Por favor informe uma quantidade válida";

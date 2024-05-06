@@ -1,6 +1,4 @@
-﻿// using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
-
-namespace ControleMedicamentos.ConsoleApp.Compartilhado
+﻿namespace ControleMedicamentos.ConsoleApp.Compartilhado
 {
     internal abstract class TelaBase
     {
